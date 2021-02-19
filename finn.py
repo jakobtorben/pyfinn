@@ -84,6 +84,11 @@ def scrape_ad(finnkode):
 
     if 'Totalpris' in ad_data:
         ad_data['Prisantydning'] = _calc_price(ad_data)
+        
+    if 'SOLGT' in html.text:
+        ad_data['Solgt'] = 'Ja'
+    else:
+        ad_data['Solgt'] = 'Nei'
 
     return ad_data
 
